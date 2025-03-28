@@ -1,0 +1,27 @@
+.homepage {
+  margin: 2rem;
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.search-content {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid;
+  border-radius: 10px;
+  width: 60%;
+}
+.search-input {
+  min-width: max-content;
+  height: 2rem;
+  background-color: #fef4e4;
+  border: none;
+  width: 80%;
+  margin: 0.6rem;
+}
+.search-btn {
+  background: none;
+  font-size: 1.5rem;
+}

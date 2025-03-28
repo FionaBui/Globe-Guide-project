@@ -32,7 +32,7 @@ function Header() {
                                 </li>
                                 {/* action */}
                                 <li className="dropdown">
-                                    <button onClick={()=> setDropdownOpen(!dropdownOpen)} className="dropdown-btn">Login</button>
+                                    <button onClick={()=> setDropdownOpen(!dropdownOpen)} className="btn dropdown-btn">Login</button>
                                     {dropdownOpen && (
                                         <div className="dropdown-content">
                                             <Link to="/login" className="dropdown-link">Logout</Link>

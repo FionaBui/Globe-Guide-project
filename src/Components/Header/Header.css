@@ -15,7 +15,7 @@ header img {
   text-decoration: none;
   padding: 0.5rem;
   font-weight: 700;
-  color: #2e281e9b;
+  color: rgba(0, 0, 0, 0.753);
   font-size: 1.5rem;
 }
 .navbar-container {
@@ -38,26 +38,26 @@ header img {
   padding-right: 20px;
 }
 .nav-link {
+  display: inline-block;
   text-decoration: none;
-  padding: 0.5rem;
+  padding: 0.2rem;
   font-weight: 700;
-  color: #2e281e9b;
+  color: rgba(0, 0, 0, 0.753);
   font-size: 1.5rem;
+  transition: all 0.3s ease-out;
 }
 .nav-link:hover {
   color: #cf2a2a;
+  transform: scale(1.1);
 }
 .dropdown-btn {
-  display: inline-block;
   font-size: 1.5rem;
-  padding: 8px 10px;
-  border-radius: 10px;
-  font-weight: 600;
-  border-style: none;
-  cursor: pointer;
+  color: #cf2a2a;
+  background-color: #fef4e4;
+  transition: all 0.3s ease-out;
 }
 .dropdown-btn:hover {
-  background-color: #cf2a2a;
+  transform: scale(1.1);
 }
 .dropdown {
   position: relative;
@@ -74,9 +74,9 @@ header img {
 }
 .dropdown-link {
   text-decoration: none;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   font-size: 1rem;
-  color: rgba(65, 65, 65, 0.87);
+  color: rgb(0, 0, 0);
   font-weight: 500;
 }
 .dropdown-link:hover {
