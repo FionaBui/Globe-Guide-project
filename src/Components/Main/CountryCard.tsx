@@ -1,12 +1,11 @@
 import { CountryType } from '../../pages/HomePage'
-
+import "./CountryCard.css"
 export const CountryCard = ({country}:{country: CountryType }) => {
   return (
-    <>
-        <div key={country.cca3}>
-            <img src={country.flags.png} alt={country.name.common} />
-            <p>{country.name.common}</p>
-        </div>
-  </>
+    < div className='country-card'>
+      <img className='country-flag' src={country.flags.png} alt={country.name.common} />
+      <p><strong>{country.name.common}</strong></p>
+      <p>{country.subregion}</p>
+    </div>
   )
 }

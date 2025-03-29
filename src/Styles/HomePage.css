@@ -9,7 +9,7 @@
 .search-content {
   display: flex;
   justify-content: space-between;
-  border: 1px solid;
+  border: 1px solid #cf2a2a;
   border-radius: 10px;
   width: 60%;
 }
@@ -24,4 +24,25 @@
 .search-btn {
   background: none;
   font-size: 1.5rem;
+}
+.filter-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  height: 5rem;
+}
+.filter {
+  padding: 10px;
+  width: 20%;
+  background: none;
+  border: 1px solid #cf2a2a;
+}
+.region {
+  margin-right: 0.5rem;
+}
+.country-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
 }

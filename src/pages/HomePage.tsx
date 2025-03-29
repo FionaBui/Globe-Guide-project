@@ -1,13 +1,14 @@
 import "../Styles/HomePage.css"
 import {useState, useEffect } from "react"
-import { CountryCard } from "../Components/Main/CountryCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { CountryCard } from "../Components/Main/CountryCard";
 export type  CountryType = {
   name: {common: string};
   region: string;
   cca3: string;
   flags: {png: string};
+  subregion: string;
   language?: {[key:string]:string}
 }
 function HomePage () {
@@ -28,8 +29,8 @@ function HomePage () {
           </div>
         </div>
         {/* Filter */}
-        <div className="filter">
-          <select name="" id="" >
+        <div className="filter-container">
+          <select name="" id="" className="region filter">
             <option value="">All regions</option>
             <option value="Asia">Asia</option>
             <option value="Europe">Europe</option>
@@ -38,7 +39,7 @@ function HomePage () {
             <option value="Oceania">Oceania</option>
             <option value="Antarctic">Antarctic</option>
           </select>
-          <select name="" id="">
+          <select name="" id="" className="filter">
             <option value="">All Subregions</option>
             <option value="Central America">Central America</option>
             <option value="North America">North America</option>
