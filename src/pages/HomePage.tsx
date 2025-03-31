@@ -45,9 +45,12 @@ function HomePage () {
           onSubregionChange={setSubregionFilter}
         />
         <div className="country-list">
-          {filteredCountries.map((country:CountryType)=>(
+          {filteredCountries.length > 0 ? (
+          filteredCountries.map((country:CountryType)=>(
           <CountryCard key={country.cca3} country={country}/>
-          ))}
+          ))): (
+            <p className="no-result">No countries match your filter.</p>
+          )}
         </div>
       </div>
     </>

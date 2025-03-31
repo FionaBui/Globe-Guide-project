@@ -45,6 +45,13 @@
   gap: 1rem;
   padding: 2rem;
 }
+.no-result {
+  grid-column: 1/-1;
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin-top: 1rem;
+}
 @media (max-width: 768px) {
   .filter-container {
     flex-direction: column;
