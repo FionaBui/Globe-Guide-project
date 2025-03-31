@@ -14,7 +14,6 @@
   width: 60%;
 }
 .search-input {
-  min-width: max-content;
   height: 2rem;
   background-color: #fef4e4;
   border: none;
@@ -32,8 +31,8 @@
   height: 5rem;
 }
 .filter {
-  padding: 10px;
-  width: 20%;
+  padding: 0.5rem;
+  width: 30%;
   background: none;
   border: 1px solid #cf2a2a;
 }
@@ -45,4 +44,17 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
   padding: 2rem;
+}
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .region {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  .filter {
+    width: 60%;
+  }
 }

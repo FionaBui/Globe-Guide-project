@@ -3,12 +3,12 @@ header {
   padding: 1rem;
   background-size: cover;
   background-position: center;
-  min-height: 300px;
+  min-height: 200px;
   width: 100vw;
 }
 
 header img {
-  width: 25rem;
+  width: 50%;
   object-fit: cover;
 }
 .nav-brand {
