@@ -6,13 +6,18 @@ import { CountryCard } from "../Components/Main/CountryCard";
 import { CountryFilter } from "../Components/Main/CountryFilter";
 import { useSearchParams } from "react-router-dom";
 export type  CountryType = {
-  name: {common: string};
+  name: {common: string, official:string};
   region: string;
   cca3: string;
-  flags: {png: string};
+  flags: {svg: string,alt:string};
   subregion: string;
   capital: string[];
-  language?: {[key:string]:string}
+  area:number;
+  population: number;
+  languages?: {[key:string]:string};
+  currencies?: { [key: string]: { name: string; symbol: string } };
+  timezones: string[];
+  borders?: string[];
 }
 function HomePage () {
   const [countries, setCountries] = useState <CountryType[]> ([]);
@@ -46,7 +51,7 @@ function HomePage () {
         setSearchParams(searchParams)
       }
     },[searchInput, searchParams, setSearchParams]);
-    
+
     const handleSearch = () => {
       if (searchInput) {
         searchParams.set("q", searchInput.trim());

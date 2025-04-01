@@ -1,0 +1,36 @@
+.detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.detail-contents {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #eadeca;
+}
+.detail-header {
+  padding-top: 1rem;
+}
+.detail-header img {
+  width: 60%;
+}
+.detail-header h1 {
+  padding-top: 1rem;
+}
+.detail-body td {
+  padding: 8px;
+  text-align: left;
+}
+.detail-body td:last-child {
+  text-align: right;
+}
+.icon {
+  padding-right: 0.5rem;
+}

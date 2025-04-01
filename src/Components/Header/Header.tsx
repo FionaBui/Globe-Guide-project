@@ -44,7 +44,6 @@ function Header() {
                         </div>
                 </div>
                 <img src={logo} alt="Logo" />
-                <h2>Come see the world with us</h2>
             </header>
         </>
      );

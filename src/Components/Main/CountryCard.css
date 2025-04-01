@@ -17,6 +17,10 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+a.country-card {
+  text-decoration: none;
+  color: inherit;
+}
 .country-flag {
   width: auto;
   max-width: 120px;
