@@ -1,3 +1,5 @@
+import './CountryFilter.css'
+
 type Props = {
     region: string;
     subregion: string;
