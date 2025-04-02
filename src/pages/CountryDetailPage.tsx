@@ -5,13 +5,29 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapLocationDot, faCity, faChessRook, faCube, faRulerCombined, faCircleNodes, faUserGroup, faLanguage, faCoins, faClock} from '@fortawesome/free-solid-svg-icons'
 import '../Styles/CountryDetailPage.css'
 
+
 function CountryDetailPage () {
   const {code} = useParams()
   const [country,setCountry]= useState<CountryType|null>(null)
+  const [borderNames,setBorderNames]=useState<string[]>([])
+
   useEffect(()=>{
     fetch (`https://restcountries.com/v3.1/alpha/${code}`)
     .then ((response)=> response.json())
-    .then ((data)=> setCountry(data[0]))
+    .then ((data)=> {
+      const countryData = data[0];
+      setCountry(countryData);
+       if(countryData.borders?.length){
+        fetch(`https://restcountries.com/v3.1/alpha?codes=${countryData.borders.join(',')}`)
+          .then ((response)=>response.json())
+          .then ((data)=>{
+            const names = data.map((c:{ name:{ common: string }})=>c.name.common);
+            setBorderNames(names)
+          }) 
+      } else {
+        setBorderNames([]);
+      }
+    })
   },[code])
     if (!country) return <p>Loading...</p>;
     return (
@@ -44,10 +60,12 @@ function CountryDetailPage () {
                 <td><FontAwesomeIcon icon={faRulerCombined} className="icon"/> <strong> Total Area:</strong></td>
                 <td>{country.area} km2</td>
               </tr>
-              <tr>
-                <td><FontAwesomeIcon icon={faCircleNodes} className="icon"/> <strong> Borders:</strong></td>
-                <td>{country.borders? country.borders.join(','): 'N/A'} </td>
-              </tr>
+              {borderNames.length>0 && (
+                <tr>
+                  <td><FontAwesomeIcon icon={faCircleNodes} className="icon"/> <strong> Borders:</strong></td>
+                  <td>{borderNames.join(', ')} </td>
+                </tr>
+              )}
               <tr>
                 <td><FontAwesomeIcon icon={faUserGroup} className="icon"/> <strong> Population:</strong></td>
                 <td>{country.population}</td>
