@@ -1,11 +1,12 @@
 import './CountryFilter.css'
-
+// Define prop types for the CountryFilter component
 type Props = {
     region: string;
     subregion: string;
     onRegionChange : (value:string) => void;
     onSubregionChange : (value:string) => void;
 }
+// Functional component for filtering countries by region and subregion
 export const CountryFilter = ({region, subregion,onRegionChange, onSubregionChange}: Props) => {
   return (
     <div className="filter-container">

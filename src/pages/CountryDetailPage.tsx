@@ -1,22 +1,28 @@
+// Import necessary hooks and types
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CountryType } from "./HomePage";
+// Import FontAwesome icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapLocationDot, faCity, faChessRook, faCube, faRulerCombined, faCircleNodes, faUserGroup, faLanguage, faCoins, faClock} from '@fortawesome/free-solid-svg-icons'
 import '../Styles/CountryDetailPage.css'
 
 
 function CountryDetailPage () {
+  // Get country code from the route parameter
   const {code} = useParams()
+    // State for the selected country
   const [country,setCountry]= useState<CountryType|null>(null)
+   // State to store names of bordering countries
   const [borderNames,setBorderNames]=useState<string[]>([])
-
+  // Fetch the selected country
   useEffect(()=>{
     fetch (`https://restcountries.com/v3.1/alpha/${code}`)
     .then ((response)=> response.json())
     .then ((data)=> {
       const countryData = data[0];
       setCountry(countryData);
+      // If the country has borders, fetch their names
        if(countryData.borders?.length){
         fetch(`https://restcountries.com/v3.1/alpha?codes=${countryData.borders.join(',')}`)
           .then ((response)=>response.json())
@@ -29,6 +35,7 @@ function CountryDetailPage () {
       }
     })
   },[code])
+  // Show loading while data is being fetched
     if (!country) return <p>Loading...</p>;
     return (
       <div className="detail-container">
