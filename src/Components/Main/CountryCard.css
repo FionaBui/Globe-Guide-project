@@ -11,13 +11,23 @@
   transition: transform 0.2s ease;
   background-color: #ffffff61;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+.country-card .favorite-btn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 0.5rem;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.167);
+  /* border-radius: 10px; */
 }
 .country-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-a.country-card {
+a.country-content {
   text-decoration: none;
   color: inherit;
 }
@@ -33,4 +43,11 @@ a.country-card {
   font-size: 1rem;
   font-weight: 600;
   color: #333;
+}
+.liked-icon {
+  color: #cf2a2a;
+  font-size: 1rem;
+}
+.unliked-icon {
+  font-size: 1rem;
 }

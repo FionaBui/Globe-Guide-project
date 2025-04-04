@@ -36,11 +36,13 @@ function Header() {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link to="/favorite" className="nav-link">
-                  Favorite
-                </Link>
-              </li>
+              {user && (
+                <li>
+                  <Link to="/favorite" className="nav-link">
+                    Favorite
+                  </Link>
+                </li>
+              )}
               {/* action */}
               <li className="dropdown">
                 <button

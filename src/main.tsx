@@ -7,11 +7,14 @@ import { RouterProvider } from "react-router-dom";
 
 import router from "./router.tsx";
 import UserProvider from "./Store/UserProvider.tsx";
+import FavoriteProvider from "./Store/FavoriteProvider.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <UserProvider>
-      <RouterProvider router={router} />
+      <FavoriteProvider>
+        <RouterProvider router={router} />
+      </FavoriteProvider>
     </UserProvider>
   </StrictMode>
 );
