@@ -2,6 +2,7 @@ import FavoriteContext from "../Store/FavoriteContext";
 import { useContext, useEffect, useState } from "react";
 import { CountryCard } from "../Components/CountryCard";
 import { CountryType } from "./HomePage";
+import "../Styles/FavoritePage.css";
 
 function FavoritePage() {
   const { favorites } = useContext(FavoriteContext)!;
@@ -22,7 +23,7 @@ function FavoritePage() {
     <div className="favorite-container">
       <h2>Favorite Countries</h2>
       {favoriteCountries.length > 0 ? (
-        <div>
+        <div className="favorite-list">
           {favoriteCountries.map((country) => (
             <CountryCard key={country.cca3} country={country} />
           ))}

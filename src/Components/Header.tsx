@@ -50,24 +50,22 @@ function Header() {
                   className="btn dropdown-btn"
                 >
                   {user ? (
-                    `${user}`
+                    <>
+                      <span className="username">{user}</span>
+                      <span className="arrow">▼</span>
+                    </>
                   ) : (
                     <Link to="/login" className="login-link">
                       Login
                     </Link>
                   )}
                 </button>
-                {dropdownOpen && (
-                  <div className="dropdown-content">
-                    {user ? (
-                      <button onClick={logout}>Logout</button>
-                    ) : (
-                      <>
-                        <Link to="/register" className="dropdown-link">
-                          Register
-                        </Link>
-                      </>
-                    )}
+                {user && dropdownOpen && (
+                  <div className="dropdown-menu-with-arrow">
+                    <div className="dropdown-arrow" />
+                    <button onClick={logout} className="dropdown-link">
+                      Log out
+                    </button>
                   </div>
                 )}
               </li>
