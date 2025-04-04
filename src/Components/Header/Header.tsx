@@ -6,11 +6,14 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useContext } from "react";
+import UserContext from "../../Store/UserContext";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
+  const { user, logout } = useContext(UserContext)!;
   return (
     <>
       <header
@@ -44,16 +47,25 @@ function Header() {
                   onClick={() => setDropdownOpen(!dropdownOpen)}
                   className="btn dropdown-btn"
                 >
-                  Login
+                  {user ? (
+                    `${user}`
+                  ) : (
+                    <Link to="/login" className="login-link">
+                      Login
+                    </Link>
+                  )}
                 </button>
                 {dropdownOpen && (
                   <div className="dropdown-content">
-                    <Link to="/login" className="dropdown-link">
-                      Logout
-                    </Link>
-                    <Link to="/register" className="dropdown-link">
-                      Register
-                    </Link>
+                    {user ? (
+                      <button onClick={logout}>Logout</button>
+                    ) : (
+                      <>
+                        <Link to="/register" className="dropdown-link">
+                          Register
+                        </Link>
+                      </>
+                    )}
                   </div>
                 )}
               </li>

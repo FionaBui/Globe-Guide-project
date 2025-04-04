@@ -82,6 +82,10 @@ header img {
 .dropdown-link:hover {
   background-color: #f1f1f1;
 }
+.login-link {
+  color: #cf2a2a;
+  text-decoration: none;
+}
 
 .nav-toggle {
   display: none;
