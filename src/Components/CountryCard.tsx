@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { CountryType } from "../../pages/HomePage";
-import "./CountryCard.css";
+import { CountryType } from "../pages/HomePage";
+import "../Styles/CountryCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as likedHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as unlikedHeart } from "@fortawesome/free-regular-svg-icons";
 import { useContext } from "react";
-import FavoriteContext from "../../Store/FavoriteContext";
+import FavoriteContext from "../Store/FavoriteContext";
 
 export const CountryCard = ({ country }: { country: CountryType }) => {
   const { addFavorite, removeFavorite, isFavorite } =

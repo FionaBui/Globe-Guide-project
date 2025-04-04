@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 // Importing custom components
-import { CountryCard } from "../Components/Main/CountryCard";
-import { CountryFilter } from "../Components/Main/CountryFilter";
+import { CountryCard } from "../Components/CountryCard";
+import { CountryFilter } from "../Components/CountryFilter";
 // Hook for reading and updating the URL query parameters
 import { useSearchParams } from "react-router-dom";
 // Defining the type for a country object

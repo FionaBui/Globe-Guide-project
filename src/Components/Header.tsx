@@ -1,13 +1,13 @@
-import logo from "../../assets/Logo.png";
-import background from "../../assets/background-map.png";
-import "./Header.css";
+import logo from "../assets/Logo.png";
+import background from "../assets/background-map.png";
+import "../Styles/Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useContext } from "react";
-import UserContext from "../../Store/UserContext";
+import UserContext from "../Store/UserContext";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);

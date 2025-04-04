@@ -1,4 +1,4 @@
-import "./CountryFilter.css";
+import "../Styles/CountryFilter.css";
 // Define prop types for the CountryFilter component
 type Props = {
   region: string;
