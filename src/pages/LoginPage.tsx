@@ -9,22 +9,17 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
   const navigate = useNavigate();
-  const realUsername = import.meta.env.VITE_USERNAME;
-  const realPassword = import.meta.env.VITE_PASSWORD;
 
   const { login } = useContext(UserContext)!;
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!username || !password) {
+    if (!username.trim() || !password.trim()) {
       setLoginError("Please enter username and password");
       return;
     }
-    if (username === realUsername && password === realPassword) {
-      login(username);
-      navigate("/");
-    } else {
-      setLoginError("Invalid Username/Password");
-    }
+
+    login(username);
+    navigate("/");
   };
 
   return (
