@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as likedHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as unlikedHeart } from "@fortawesome/free-regular-svg-icons";
 import { useContext } from "react";
+import UserContext from "../Store/UserContext";
 import FavoriteContext from "../Store/FavoriteContext";
 import styled from "styled-components";
 
@@ -63,11 +64,17 @@ const StyledIcon = styled(FontAwesomeIcon)`
 `;
 
 export const CountryCard = ({ country }: { country: CountryType }) => {
+  const { user } = useContext(UserContext)!;
+
   const { addFavorite, removeFavorite, isFavorite } =
     useContext(FavoriteContext)!;
 
   const favorite = isFavorite(country.cca3);
   const toggleFavoriteIcon = () => {
+    if (!user) {
+      alert("Please login to add favorites!");
+      return;
+    }
     if (favorite) {
       removeFavorite(country.cca3);
     } else {
