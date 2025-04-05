@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
-import { CountryType } from "../pages/HomePage";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart as likedHeart } from "@fortawesome/free-solid-svg-icons";
-import { faHeart as unlikedHeart } from "@fortawesome/free-regular-svg-icons";
-import { useContext } from "react";
-import UserContext from "../Store/UserContext";
-import FavoriteContext from "../Store/FavoriteContext";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import { CountryType } from '../pages/HomePage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as likedHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as unlikedHeart } from '@fortawesome/free-regular-svg-icons';
+import { useContext } from 'react';
+import UserContext from '../Store/UserContext';
+import FavoriteContext from '../Store/FavoriteContext';
+import styled from 'styled-components';
 
 // Styled Components
 const Card = styled.div`
@@ -66,13 +66,12 @@ const StyledIcon = styled(FontAwesomeIcon)`
 export const CountryCard = ({ country }: { country: CountryType }) => {
   const { user } = useContext(UserContext)!;
 
-  const { addFavorite, removeFavorite, isFavorite } =
-    useContext(FavoriteContext)!;
+  const { addFavorite, removeFavorite, isFavorite } = useContext(FavoriteContext)!;
 
   const favorite = isFavorite(country.cca3);
   const toggleFavoriteIcon = () => {
     if (!user) {
-      alert("Please login to add favorites!");
+      alert('Please login to add favorites!');
       return;
     }
     if (favorite) {
@@ -94,7 +93,7 @@ export const CountryCard = ({ country }: { country: CountryType }) => {
       <FavoriteButton onClick={toggleFavoriteIcon}>
         <StyledIcon
           icon={favorite ? likedHeart : unlikedHeart}
-          className={favorite ? "liked-icon" : "unliked-icon"}
+          className={favorite ? 'liked-icon' : 'unliked-icon'}
         />
       </FavoriteButton>
     </Card>

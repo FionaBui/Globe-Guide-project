@@ -1,25 +1,25 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import UserContext from "../Store/UserContext";
-import "../Styles/LoginPage.css";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import UserContext from '../Store/UserContext';
+import '../Styles/LoginPage.css';
 
 function LoginPage() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [loginError, setLoginError] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
   const navigate = useNavigate();
 
   const { login } = useContext(UserContext)!;
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!username.trim() || !password.trim()) {
-      setLoginError("Please enter username and password");
+      setLoginError('Please enter username and password');
       return;
     }
 
     login(username);
-    navigate("/");
+    navigate('/');
   };
 
   return (

@@ -1,4 +1,4 @@
-import "../Styles/CountryFilter.css";
+import '../Styles/CountryFilter.css';
 // Define prop types for the CountryFilter component
 type Props = {
   region: string;
@@ -7,12 +7,7 @@ type Props = {
   onSubregionChange: (value: string) => void;
 };
 // Functional component for filtering countries by region and subregion
-export const CountryFilter = ({
-  region,
-  subregion,
-  onRegionChange,
-  onSubregionChange,
-}: Props) => {
+export const CountryFilter = ({ region, subregion, onRegionChange, onSubregionChange }: Props) => {
   return (
     <div className="filter-container">
       <select
@@ -55,9 +50,7 @@ export const CountryFilter = ({
         <option value="South-Eastern Asia">South-Eastern Asia</option>
         <option value="Southern Asia">Southern Asia</option>
         <option value="Western Asia">Western Asia</option>
-        <option value="Australia and New Zealand">
-          Australia and New Zealand
-        </option>
+        <option value="Australia and New Zealand">Australia and New Zealand</option>
         <option value="Micronesia">Micronesia</option>
         <option value="Melanesia">Melanesia</option>
       </select>

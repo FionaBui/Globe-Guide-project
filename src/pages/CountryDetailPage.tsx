@@ -1,9 +1,9 @@
 // Import necessary hooks and types
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { CountryType } from "./HomePage";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { CountryType } from './HomePage';
 // Import FontAwesome icons
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faMapLocationDot,
   faCity,
@@ -15,8 +15,8 @@ import {
   faLanguage,
   faCoins,
   faClock,
-} from "@fortawesome/free-solid-svg-icons";
-import "../Styles/CountryDetailPage.css";
+} from '@fortawesome/free-solid-svg-icons';
+import '../Styles/CountryDetailPage.css';
 
 function CountryDetailPage() {
   // Get country code from the route parameter
@@ -34,16 +34,10 @@ function CountryDetailPage() {
         setCountry(countryData);
         // If the country has borders, fetch their names
         if (countryData.borders?.length) {
-          fetch(
-            `https://restcountries.com/v3.1/alpha?codes=${countryData.borders.join(
-              ","
-            )}`
-          )
+          fetch(`https://restcountries.com/v3.1/alpha?codes=${countryData.borders.join(',')}`)
             .then((response) => response.json())
             .then((data) => {
-              const names = data.map(
-                (c: { name: { common: string } }) => c.name.common
-              );
+              const names = data.map((c: { name: { common: string } }) => c.name.common);
               setBorderNames(names);
             });
         } else {
@@ -65,7 +59,7 @@ function CountryDetailPage() {
           <tbody>
             <tr>
               <td>
-                <FontAwesomeIcon icon={faMapLocationDot} className="icon" />{" "}
+                <FontAwesomeIcon icon={faMapLocationDot} className="icon" />{' '}
                 <strong> Region:</strong>
               </td>
               <td>{country.region}</td>
@@ -86,14 +80,13 @@ function CountryDetailPage() {
             </tr>
             <tr>
               <td>
-                <FontAwesomeIcon icon={faCube} className="icon" />{" "}
-                <strong> CCA3 Code:</strong>
+                <FontAwesomeIcon icon={faCube} className="icon" /> <strong> CCA3 Code:</strong>
               </td>
               <td>{country.cca3}</td>
             </tr>
             <tr>
               <td>
-                <FontAwesomeIcon icon={faRulerCombined} className="icon" />{" "}
+                <FontAwesomeIcon icon={faRulerCombined} className="icon" />{' '}
                 <strong> Total Area:</strong>
               </td>
               <td>{country.area} km2</td>
@@ -101,49 +94,40 @@ function CountryDetailPage() {
             {borderNames.length > 0 && (
               <tr>
                 <td>
-                  <FontAwesomeIcon icon={faCircleNodes} className="icon" />{" "}
+                  <FontAwesomeIcon icon={faCircleNodes} className="icon" />{' '}
                   <strong> Borders:</strong>
                 </td>
-                <td>{borderNames.join(", ")} </td>
+                <td>{borderNames.join(', ')} </td>
               </tr>
             )}
             <tr>
               <td>
-                <FontAwesomeIcon icon={faUserGroup} className="icon" />{" "}
+                <FontAwesomeIcon icon={faUserGroup} className="icon" />{' '}
                 <strong> Population:</strong>
               </td>
               <td>{country.population}</td>
             </tr>
             <tr>
               <td>
-                <FontAwesomeIcon icon={faLanguage} className="icon" />{" "}
-                <strong> Languages:</strong>
+                <FontAwesomeIcon icon={faLanguage} className="icon" /> <strong> Languages:</strong>
               </td>
-              <td>
-                {country.languages
-                  ? Object.values(country.languages).join(", ")
-                  : "N/A"}
-              </td>
+              <td>{country.languages ? Object.values(country.languages).join(', ') : 'N/A'}</td>
             </tr>
             <tr>
               <td>
-                <FontAwesomeIcon icon={faCoins} className="icon" />{" "}
-                <strong> Currencies:</strong>
+                <FontAwesomeIcon icon={faCoins} className="icon" /> <strong> Currencies:</strong>
               </td>
               <td>
                 {country.currencies
                   ? Object.values(country.currencies)
-                      .map(
-                        (currency) => `${currency.name} (${currency.symbol})`
-                      )
-                      .join(",")
-                  : "N/A"}
+                      .map((currency) => `${currency.name} (${currency.symbol})`)
+                      .join(',')
+                  : 'N/A'}
               </td>
             </tr>
             <tr>
               <td>
-                <FontAwesomeIcon icon={faClock} className="icon" />{" "}
-                <strong> Timezones:</strong>
+                <FontAwesomeIcon icon={faClock} className="icon" /> <strong> Timezones:</strong>
               </td>
               <td>{country.timezones}</td>
             </tr>

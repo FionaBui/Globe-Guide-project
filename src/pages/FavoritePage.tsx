@@ -1,21 +1,19 @@
-import FavoriteContext from "../Store/FavoriteContext";
-import { useContext, useEffect, useState } from "react";
-import { CountryCard } from "../Components/CountryCard";
-import { CountryType } from "./HomePage";
-import "../Styles/FavoritePage.css";
+import FavoriteContext from '../Store/FavoriteContext';
+import { useContext, useEffect, useState } from 'react';
+import { CountryCard } from '../Components/CountryCard';
+import { CountryType } from './HomePage';
+import '../Styles/FavoritePage.css';
 
 function FavoritePage() {
   const { favorites } = useContext(FavoriteContext)!;
-  console.log("favorites:", favorites);
+  console.log('favorites:', favorites);
   const [favoriteCountries, setFavoriteCountries] = useState<CountryType[]>([]);
 
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
+    fetch('https://restcountries.com/v3.1/all')
       .then((response) => response.json())
       .then((data) => {
-        const filtered = data.filter((c: CountryType) =>
-          favorites.includes(c.cca3)
-        );
+        const filtered = data.filter((c: CountryType) => favorites.includes(c.cca3));
         setFavoriteCountries(filtered);
       });
   }, [favorites]);

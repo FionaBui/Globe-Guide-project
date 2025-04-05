@@ -1,29 +1,29 @@
-import { createHashRouter } from "react-router-dom";
-import App from "./App";
-import CountryDetailPage from "./pages/CountryDetailPage";
-import FavoritePage from "./pages/FavoritePage";
-import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
+import { createHashRouter } from 'react-router-dom';
+import App from './App';
+import CountryDetailPage from './pages/CountryDetailPage';
+import FavoritePage from './pages/FavoritePage';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
 
 const router = createHashRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     children: [
       {
-        path: "/",
+        path: '/',
         element: <HomePage />,
       },
       {
-        path: "/country/:code",
+        path: '/country/:code',
         element: <CountryDetailPage />,
       },
       {
-        path: "/favorite",
+        path: '/favorite',
         element: <FavoritePage />,
       },
       {
-        path: "/login",
+        path: '/login',
         element: <LoginPage />,
       },
     ],
